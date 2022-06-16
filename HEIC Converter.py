@@ -3,7 +3,11 @@ import pillow_heif
 import os
 import re
 
-for i in os.listdir('./heic_files/'):
+base_dir = os.listdir('./heic_files/')
+
+output_dir = os.path.join('./png_files/')
+
+for i in os.listdir(base_dir):
     
     name = i
     rule = "(?<=\.)[^.]*$"
@@ -22,4 +26,4 @@ for i in os.listdir('./heic_files/'):
 
 
 
-    image.save("./png_files/"+result[0]+"png", format="png")
+    image.save(output_dir+result[0]+"png", format="png")
